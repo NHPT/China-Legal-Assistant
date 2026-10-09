@@ -29,7 +29,7 @@
   下载或安装；所有公开交付统一采用 Apache License 2.0。
 - 本地程序公开分发可执行文件，但不公开本地程序源码；平台包不包含生产语料、
   服务端源码、凭据或构建机器标识。
-- 支持 macOS arm64/x64、Linux arm64/x64（glibc 或 musl）和 Windows
+- 支持 macOS arm64/x64、Linux arm64/x64（glibc）和 Windows
   arm64/x64 的原生构建目标。
 - 公测状态仍为延期人工校验，不宣称已完成独立专业复核或真实部署验收。
 
