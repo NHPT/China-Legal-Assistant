@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "china-legal": {
+      "transport": "streamable-http",
+      "url": "https://legalapi.hackall.cn/mcp"
+    },
+    "china-legal-local": {
+      "command": "/bin/sh",
+      "args": [
+        "-c",
+        "exec \"$HOME/.local/bin/china-legal-local\""
+      ]
+    }
+  }
+}
