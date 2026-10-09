@@ -1,0 +1,31 @@
+name: Publish tagged release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          notes_file="$RUNNER_TEMP/release-notes.md"
+          printf '%s\n\n' \
+            '> 预发布：六个平台安装包将在原生构建与验证完成后补充。' \
+            >"$notes_file"
+          cat RELEASE_NOTES.md >>"$notes_file"
+          gh release create "$GITHUB_REF_NAME" \
+            --verify-tag \
+            --prerelease \
+            --title "China Legal Assistant $GITHUB_REF_NAME" \
+            --notes-file "$notes_file"
